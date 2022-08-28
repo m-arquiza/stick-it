@@ -56,6 +56,8 @@ document.getElementById("new-sticky").addEventListener("click", function(){
 });
 document.getElementById("popup-close").addEventListener("click", function(){
     document.getElementById("popup").style.display = "none";
+    let textbox = document.getElementById("sticky-text");
+    textbox.value = "";
 });
 
 
