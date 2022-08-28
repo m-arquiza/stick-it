@@ -194,8 +194,13 @@ trashcan.addEventListener("drop", function(event){
 
 // Alerts user if there is a pre-existing note with same text.
 function checkUnique(text){
-    return confirm("are you sure you want to create this note? " +
-        "you already have already created an identical note.");
+    for(let i = 0; i < notes.length; ++i){
+        if(notes[i][0] === text){
+            return confirm("are you sure you want to create this note? " +
+                "you already have already created an identical note.");
+        }
+    }
+    return true;
 }
 
 // Helper method to delete a given note from table/screen.
