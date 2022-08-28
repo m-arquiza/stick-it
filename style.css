@@ -1,0 +1,486 @@
+/*  *.* HTML & BODY
+    background photo and size, sets attributes to allow full-size divs
+*/
+html {
+    height: 100%;
+    overflow: hidden
+}
+body {
+    background-image: url("/images/slanted-desk.PNG");
+    background-size: 1540px;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: bottom left;
+    min-height:100%;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+
+}
+
+
+
+/*  *.* CREATE, DELETE, & ASSOCIATED INFO TEXT
+    create button + delete trashcan, all instructions with fade
+*/
+/* Instructions class; transition to fade all instructions.*/
+.instructions {
+    transition: 3s opacity, 3s visibility;
+    opacity: 1;
+    color:#474342;
+}
+
+/* Fade class */
+.fade{
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Button to launch popup and create new sticky-note.*/
+#new-sticky{
+    color: transparent;
+    background-color: transparent;
+    border: none;
+
+    outline: none;
+    cursor: default;
+    width: 105px;
+    height: 65px;
+
+    position: absolute;
+    right: 105px;
+    top: 50px;
+}
+/* Create instructions */
+#create-text{
+    position: absolute;
+    right: 80px;
+    top: -5px;
+}
+#arrow1{
+    position: absolute;
+    right: 150px;
+    top: 12px;
+}
+
+/* Droppable div that enables deletion */
+#trashcan{
+    position:absolute;
+
+    height: 225px;
+    width: 210px;
+    bottom: 0;
+    right: 235px;
+}
+/* Delete instructions */
+#trash-text{
+    position: absolute;
+    right: 280px;
+    bottom: 230px;
+}
+#arrow2{
+    position: absolute;
+    right: 333px;
+    bottom: 213px;
+}
+
+
+
+/*  *.* LINKS & LINK INFO TEXT
+    link info, link container, links
+*/
+/* Link instructions */
+#link-text{
+    position: absolute;
+    right: 100px;
+    top: 228px;
+}
+#arrow3{
+    position: absolute;
+    right: 180px;
+    top: 245px;
+}
+
+/* Link container for link editor and hyperlink */
+.link{
+    background: #db8686;
+    position: absolute;
+    width: 100px;
+    height: 30px;
+    display: inline-block;
+
+    transform: skew(0deg, -13deg);
+
+}
+
+/* Link container positions */
+.l1{
+    right: 185px;
+    top: 300px;
+
+}
+.l2{
+    right: 75px;
+    top: 275px;
+}
+.l3{
+    right: 185px;
+    top: 350px;
+}
+.l4{
+    right: 75px;
+    top: 325px;
+}
+.l5{
+    right: 185px;
+    top: 400px;
+}
+.l6{
+    right: 75px;
+    top: 375px;
+
+}
+
+/* Sprout editor button */
+.sprout{
+    float: left;
+}
+
+/* Hyperlink itself*/
+.QL{
+    display:inline-block;
+    padding-top: 10px;
+    padding-left: 5px;
+}
+
+
+
+/*  *.* POPUP
+    popup, buttons & hover/tags,
+*/
+/* Popup overlay */
+#popup{
+    background:rgba(0,0,0,.4);
+    cursor:default;
+    display:none;
+    vertical-align: middle;
+    position:fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index:10000;
+}
+
+/* Popup close and stick buttons */
+#popup-close{
+    color:#474342;
+    font-size: 100px;
+    cursor: pointer;
+    position: absolute;
+    top: -80px;
+    right:370px;
+    z-index:10001;
+}
+#stick {
+    width: 0;
+    height: 0;
+    border-bottom: 100px solid #618593;
+    border-left: 150px solid transparent;
+
+    cursor: pointer;
+    position: absolute;
+    bottom: 50px;
+    right: 350px;
+    z-index: 10001;
+
+    transition: filter 2s;
+}
+#stick:hover{
+    filter:brightness(1.5);
+}
+#stick-tag{
+    position:absolute;
+    font-size: 25px;
+    font-weight: bold;
+    color: #48616b;
+    transform: rotate(-35deg);
+    bottom: 50px;
+    right: 355px;
+    z-index: 10002;
+
+}
+
+/* Textarea styles */
+#sticky-text{
+    background-color: #99bbc9;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 500;
+    font-size: 40px;
+    padding-left:50px;
+    padding-top: 20px;
+    padding-right: 70px;
+
+    resize: none;
+    position:fixed;
+    top: 50px;
+    left: 350px;
+    bottom: 50px;
+    right: 350px;
+}
+
+
+
+/*  *.* ZOOM
+    background, note, and trash
+*/
+/* Background overlay of table */
+.zoom-table{
+    background-image: url("/images/zoom.png");
+    background-size: 1540px;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: bottom left;
+
+    height:100%;
+    width:100%;
+    left: 0;
+    top: 0;
+    overflow-wrap: break-word;
+    overflow-y: auto;
+    position: fixed;
+}
+
+/* Stylized uneditable note */
+.zoom-note {
+    background-color: #99bbc9;
+
+    font-family: "Open Sans", sans-serif;
+    font-weight: 500;
+    font-size: 40px;
+    padding:50px;
+
+    resize: none;
+    position:fixed;
+    top: 50px;
+    left: 350px;
+    bottom: 50px;
+    right: 350px;
+}
+
+/* Delete button with animations */
+.zoom-trash{
+    background-image: url("/images/trash.png");
+    background-size: 100%;
+    position:fixed;
+    right: 350px;
+    bottom: 50px;
+    width: 100px;
+    height: 100px;
+    z-index: 10050;
+}
+.zoom-crumple{
+    background-image: url("/images/crumple.png");
+    background-repeat: no-repeat;
+    background-size: 75px;
+    position:fixed;
+    right: 350px;
+    bottom: 50px;
+    width: 100px;
+    height: 150px;
+    z-index: 10045;
+    transition: width 2s, height 2s, bottom 4s;
+}
+.zoom-crumple:hover{
+    width: 50px;
+    height: 50px;
+    bottom: 10px;
+}
+
+
+
+/*  *.* SIDEBAR BUTTONS
+    save, clear, animations, info text
+*/
+/* Border deletion */
+.store{
+    border: none;
+}
+
+/* Save and clear button with hover */
+#save{
+    font: inherit;
+    position: absolute;
+    bottom: 50px;
+    right: 30px;
+    background-color: #77bd85;
+    width: 60px;
+    height: 30px;
+
+    transition: width 2s, height 2s, background-color 2s;
+}
+#save:hover{
+    width: 65px;
+    height: 35px;
+    background-color: #b4e0c3;
+}
+
+#clear{
+    font: inherit;
+    position: absolute;
+    bottom: 10px;
+    right: 30px;
+    background-color: #77a7bd;
+    width: 60px;
+    height: 30px;
+
+    transition: width 2s, height 2s, background-color 2s;
+}
+#clear:hover{
+    width: 65px;
+    height: 35px;
+    background-color: #bde6f0;
+}
+
+/* Save and clear instructions + animation*/
+.save-text{
+    color:#474342;
+    position: absolute;
+    right: 38px;
+    bottom: 75px;
+    opacity: 1;
+    visibility: hidden;
+
+    transition: 2s opacity ease-in, 2s visibility ease-in, bottom 2s ease-out;
+}
+.clear-text{
+    color:#474342;
+    position: absolute;
+    right: 38px;
+    bottom: 75px;
+    opacity: 1;
+    visibility: hidden;
+
+    transition: 2s opacity ease-in, 2s visibility ease-in, bottom 2s ease-out;
+}
+.inOut {
+    opacity: 0;
+    visibility: visible;
+    bottom: 115px;
+}
+
+/*  *.* STICKY NOTES
+    note and stickable areas
+*/
+/* sticky note design */
+.sticky-note{
+    box-sizing: border-box;
+    background-color: #99bbc9;
+    position:absolute;
+
+    height: 68px;
+    width: 148px;
+    display: inline-block;
+    overflow-wrap: break-word;
+    overflow-y: auto;
+    padding:10px;
+}
+
+/* All stylized stickable areas with transition*/
+.stickable{
+    position:absolute;
+
+    height: 68px;
+    width: 148px;
+    display: inline;
+    transform: skew(46deg, -13deg);
+    transition: 1s background-color ease-in-out, 1s opacity ease-in-out;
+}
+.show{
+    background-color: #474342;
+    opacity: .3;
+}
+
+.area1{
+    top: 412px;
+    left: 216px;
+}
+.area2{
+    top: 376px;
+    left: 366px;
+}
+.area3{
+    top: 340px;
+    left: 521px;
+}
+.area4{
+    top: 303px;
+    left: 674px;
+}
+
+.area5{
+    top: 555px;
+    left: -11px;
+}
+.area6{
+    top: 521px;
+    left: 141px;
+}
+.area7{
+    top: 486px;
+    left: 293px;
+}
+.area8{
+    top: 452px;
+    left: 447px;
+}
+.area9{
+    top: 415px;
+    left: 600px;
+}
+.area10{
+    top: 378px;
+    left: 750px;
+}
+
+.area11{
+    top: 632px;
+    left: 62px;
+}
+.area12{
+    top: 596px;
+    left: 216px;
+}
+.area13{
+    top: 559px;
+    left: 367px;
+}
+.area14{
+    top: 524px;
+    left: 520px;
+}
+.area15{
+    top: 487px;
+    left: 672px;
+}
+.area16{
+    top: 452px;
+    left: 822px;
+}
+
+.area17{
+    top: 634px;
+    left: 445px;
+}
+.area18{
+    top: 599px;
+    left: 597px;
+}
+.area19{
+    top: 564px;
+    left: 750px;
+}
+.area20{
+    top: 527px;
+    left: 900px;
+}

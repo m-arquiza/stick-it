@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stick It!</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+        <div id="create-button">
+            <p class="instructions create-info" id="create-text" >click here to make a sticky note!</p>
+            <p class="instructions create-info" id="arrow1">v</p>
+            <button id="new-sticky"></button>
+        </div>
+
+        <div id="popup">
+            <div id="inner-pop">
+                <p id="popup-close">&times</p>
+                <label>
+                    <textarea id="sticky-text"
+                              name="to-do"
+                              placeholder="write your to-do item here!"
+                              required></textarea>
+                </label>
+                <div id="stick"></div>
+                <p id="stick-tag">stick me!</p>
+            </div>
+        </div>
+
+        <div id="sticky-areas">
+            <span class="stickable area1"></span>
+            <span class="stickable area2"></span>
+            <span class="stickable area3"></span>
+            <span class="stickable area4"></span>
+            <span class="stickable area5"></span>
+            <span class="stickable area6"></span>
+            <span class="stickable area7"></span>
+            <span class="stickable area8"></span>
+            <span class="stickable area9"></span>
+            <span class="stickable area10"></span>
+            <span class="stickable area11"></span>
+            <span class="stickable area12"></span>
+            <span class="stickable area13"></span>
+            <span class="stickable area14"></span>
+            <span class="stickable area15"></span>
+            <span class="stickable area16"></span>
+            <span class="stickable area17"></span>
+            <span class="stickable area18"></span>
+            <span class="stickable area19"></span>
+            <span class="stickable area20"></span>
+        </div>
+
+        <div id="side-buttons">
+            <button class="store" id="save">save</button>
+            <p class="save-text">saved!</p>
+            <button class="store" id="clear">clear</button>
+            <p class="clear-text">cleared!</p>
+        </div>
+
+        <div id="trash">
+            <p class="instructions trash-info" id="trash-text" >drag here to delete!</p>
+            <p class="instructions trash-info" id="arrow2">v</p>
+            <div id ="trashcan"></div>
+        </div>
+
+        <div id="quick-links">
+            <p class="instructions link-info" id="link-text" >click here to create a hyperlink!</p>
+            <p class="instructions link-info" id="arrow3">v</p>
+
+
+            <div class ="link l1">
+                <p class="sprout 1">&#127793</p><a class="QL 1"></a>
+            </div>
+            <div class = "link l2">
+                <p class="sprout 2">&#127793</p><a class="QL 2"></a>
+            </div>
+            <div class = "link l3">
+                <p class="sprout 3">&#127793</p><a class="QL 3"></a>
+            </div>
+            <div class = "link l4">
+                <p class="sprout 4">&#127793</p><a class="QL 4"></a>
+            </div>
+            <div class = "link l5">
+                <p class="sprout 5">&#127793</p><a class="QL 5"></a>
+            </div>
+            <div class = "link l6">
+                <p class="sprout 6">&#127793</p><a class="QL 6"></a>
+            </div>
+
+        </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
