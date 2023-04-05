@@ -254,6 +254,7 @@ document.getElementById("save").addEventListener("click", function(){
     }
     for(let j = 0; j < links.length; ++j){
         let l_key = "link"+j;
+        console.log(links[j])
         let toLink = [links[j][0], links[j][1], links[j][2]];
         localStorage.setItem(l_key, JSON.stringify(toLink));
     }
@@ -329,6 +330,7 @@ for(let i = 0; i < sprouts.length; ++i){
         let link = prompt("copy and paste your link here!");
         let text;
         let changeIcon;
+        delete links[i];
         if(link != null && link !== ""){
             let invalid = true;
             while(invalid){
