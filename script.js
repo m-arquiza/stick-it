@@ -144,8 +144,10 @@ for(let i = 0; i < stickyareas.length; ++i){
         if(note.length > 0){
             let outer = document.createElement("div");
             outer.setAttribute("class", "zoom-table");
-            outer.addEventListener("click", function (){
-                outer.parentNode.removeChild(outer);
+            outer.addEventListener("click", function (event){
+                if(event.target.classList[0] == "zoom-table") {   
+                    outer.parentNode.removeChild(outer);
+                }
             });
 
             let current = document.createElement("span");
@@ -158,6 +160,9 @@ for(let i = 0; i < stickyareas.length; ++i){
                 deleteNote(note[0]);
             });
 
+            let trashoverlay = document.createElement("div");
+            trashoverlay.setAttribute("class","zoom-trashoverlay");
+
             let trashpaper = document.createElement("div");
             trashpaper.setAttribute("class","zoom-crumple");
             trashpaper.addEventListener("click", function (){
@@ -166,6 +171,7 @@ for(let i = 0; i < stickyareas.length; ++i){
 
             outer.appendChild(trashpaper)
             outer.appendChild(trashcan)
+            outer.appendChild(trashoverlay)
             outer.appendChild(current);
             document.body.appendChild(outer);
         }
@@ -286,7 +292,7 @@ document.getElementById("clear").addEventListener("click", function() {
         while(stickyNotes.length){
             stickyNotes[0].parentNode.removeChild(stickyNotes[0]);
         }
-        for(let i = 0; i < 6; ++i){
+        for(let i = 0; i < 8; ++i){
             updateLinks("", "", "\u{1F331}", i);
         }
     }

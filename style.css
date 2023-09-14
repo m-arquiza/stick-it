@@ -7,7 +7,7 @@ html {
 }
 body {
     background-image: url("/images/slanted-desk.PNG");
-    background-size: 1540px;
+    background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: bottom left;
@@ -40,48 +40,49 @@ body {
 #new-sticky{
     color: transparent;
     background-color: transparent;
-    border: none;
+    border:none;
 
     outline: none;
     cursor: default;
-    width: 105px;
-    height: 65px;
+    width: 6%;
+    height: 12%;
 
-    position: absolute;
-    right: 105px;
-    top: 50px;
+    position: fixed;
+    right: 7.5%;
+    top:6%;
+
 }
 /* Create instructions */
 #create-text{
-    position: absolute;
-    right: 80px;
+    position: fixed;
+    right: 6%;
     top: -5px;
 }
 #arrow1{
-    position: absolute;
-    right: 150px;
-    top: 12px;
+    position: fixed;
+    right: 10%;
+    top: 2%;
 }
 
 /* Droppable div that enables deletion */
 #trashcan{
-    position:absolute;
+    position:fixed;
 
-    height: 225px;
-    width: 210px;
+    height: 30%;
+    width: 15%;
     bottom: 0;
-    right: 235px;
+    right: 15%;
 }
 /* Delete instructions */
 #trash-text{
-    position: absolute;
-    right: 280px;
-    bottom: 230px;
+    position: fixed;
+    right: 19%;
+    bottom: 33%;
 }
 #arrow2{
-    position: absolute;
-    right: 333px;
-    bottom: 213px;
+    position: fixed;
+    right: 22%;
+    bottom: 30%;
 }
 
 
@@ -101,45 +102,32 @@ body {
     top: 245px;
 }
 
+
+
 /* Link container for link editor and hyperlink */
-.link{
-    background: #db8686;
-    position: absolute;
-    width: 100px;
-    height: 30px;
-    display: inline-block;
+#quick-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;  
+    grid-template-rows: repeat(auto-fit, minmax(34px, 1fr));  
+    grid-gap: 10% 3%;
+
+    position: fixed;
+
+    top: 41%;
+    right: 5%;
+
+    width: 14%;
+    height: 20.4%; 
+    max-height: 20.4%; 
 
     transform: skew(0deg, -13deg);
-
+    overflow:hidden;
 }
 
-/* Link container positions */
-.l1{
-    right: 185px;
-    top: 300px;
+.link{
+    background: #db8686;
+}
 
-}
-.l2{
-    right: 75px;
-    top: 275px;
-}
-.l3{
-    right: 185px;
-    top: 350px;
-}
-.l4{
-    right: 75px;
-    top: 325px;
-}
-.l5{
-    right: 185px;
-    top: 400px;
-}
-.l6{
-    right: 75px;
-    top: 375px;
-
-}
 
 /* Sprout editor button */
 .sprout{
@@ -237,7 +225,7 @@ body {
 /* Background overlay of table */
 .zoom-table{
     background-image: url("/images/zoom.png");
-    background-size: 1540px;
+    background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: bottom left;
@@ -277,7 +265,17 @@ body {
     bottom: 50px;
     width: 100px;
     height: 100px;
-    z-index: 10050;
+    z-index: 10045;
+}
+.zoom-trashoverlay{
+    background-image: url("/images/trash-overlay.png");
+    background-size: 100%;
+    position:fixed;
+    right: 350px;
+    bottom: 50px;
+    width: 100px;
+    height: 100px;
+    z-index: 10055;
 }
 .zoom-crumple{
     background-image: url("/images/crumple.png");
@@ -288,7 +286,7 @@ body {
     bottom: 50px;
     width: 100px;
     height: 150px;
-    z-index: 10045;
+    z-index: 10050;
     transition: width 2s, height 2s, bottom 4s;
 }
 .zoom-crumple:hover{
@@ -376,30 +374,65 @@ body {
 .sticky-note{
     box-sizing: border-box;
     background-color: #99bbc9;
-    position:absolute;
 
-    height: 68px;
-    width: 148px;
+    min-width: 148px;
+    min-height: 130px;
+    width: 100%;
+    height: 100%;
+    max-width: 220px;
+    max-height: 130px;
+
     display: inline-block;
     overflow-wrap: break-word;
-    overflow-y: auto;
     padding:10px;
+    position: relative;
+    overflow-y: auto;
 }
 
 /* All stylized stickable areas with transition*/
-.stickable{
-    position:absolute;
+#sticky-areas{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-gap: 2% 1%;
 
-    height: 68px;
-    width: 148px;
-    display: inline;
+    position: fixed;
+    top: 56%;
+    left: 5%;
+
+    width: 56%;
+    height: 40%;
+    
+    max-width: 56%;
+
     transform: skew(46deg, -13deg);
-    transition: 1s background-color ease-in-out, 1s opacity ease-in-out;
+
+}
+
+
+ .stickable{
+    transition: 1s background-color ease-in-out, 1s opacity ease-in-out; 
+    overflow: hidden;
 }
 .show{
     background-color: #474342;
     opacity: .3;
 }
+
+
+
+/* CODE TO TOSS */
+/*
+ .stickable{
+    background-color: blue;
+    /* position:absolute;
+
+    height: 68px;
+    width: 148px;
+    display: inline;
+    transform: skew(46deg, -13deg);
+ }
+
 
 .area1{
     top: 412px;
@@ -483,4 +516,33 @@ body {
 .area20{
     top: 527px;
     left: 900px;
+} */
+
+
+/* Link container positions */
+/* .l1{
+    right: 185px;
+    top: 300px;
+
 }
+.l2{
+    right: 75px;
+    top: 275px;
+}
+.l3{
+    right: 185px;
+    top: 350px;
+}
+.l4{
+    right: 75px;
+    top: 325px;
+}
+.l5{
+    right: 185px;
+    top: 400px;
+}
+.l6{
+    right: 75px;
+    top: 375px;
+
+} */
